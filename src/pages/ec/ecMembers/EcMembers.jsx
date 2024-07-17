@@ -11,6 +11,7 @@ import {
 } from "../../../features/ec/ecApiSlice";
 import Swal from "sweetalert2";
 import Loading from "../../../components/Loading";
+import { Helmet } from "react-helmet-async";
 
 const EcMembers = () => {
   const dispatch = useDispatch();
@@ -101,10 +102,11 @@ const EcMembers = () => {
     return <Loading />;
   }
 
-  console.log(singleEc);
-
   return (
     <>
+      <Helmet>
+        <title>EC Members | KIN Dashboard</title>
+      </Helmet>
       <section className="w-full px-4 py-10 bg-[#121a2d]">
         <div>
           <div className="pb-4">

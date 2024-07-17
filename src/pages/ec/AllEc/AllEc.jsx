@@ -6,6 +6,7 @@ import { useRef } from "react";
 import Swal from "sweetalert2";
 import { allEc, deleteEc, updateEc } from "../../../features/ec/ecApiSlice";
 import Loading from "../../../components/Loading";
+import { Helmet } from "react-helmet-async";
 
 const AllEc = () => {
   const dispatch = useDispatch();
@@ -83,6 +84,9 @@ const AllEc = () => {
 
   return (
     <>
+      <Helmet>
+        <title>All EC | KIN Dashboard</title>
+      </Helmet>
       <section className="w-full p-4 bg-[#121a2d]">
         <h1 className=" pb-4 text-center font-bold text-xl text-[#38bdf8]">
           All EC Member

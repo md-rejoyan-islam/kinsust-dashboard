@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { isEmail } from "../../../helper/helper";
 import { userLogin } from "../../../features/auth/authApiSlice";
 import SmallLoader from "../../../components/SmallLoader";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   // dispatch
@@ -49,6 +50,9 @@ const Login = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Login| KIN Dashboard</title>
+      </Helmet>
       <main className="bg-[#121a2d] min-h-screen flex flex-col">
         <section className="px-4  py-12 flex-1 flex justify-center items-center">
           <div className=" w-[460px] mx-auto h-fit p-4 rounded-md text-[#33bdf8] bg-[#1e293bd6] ">

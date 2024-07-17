@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { addEc } from "../../../features/ec/ecApiSlice";
+import { Helmet } from "react-helmet-async";
 
 const AddEc = () => {
   const dispatch = useDispatch();
@@ -24,6 +25,9 @@ const AddEc = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Add EC | KIN Dashboard</title>
+      </Helmet>
       <section className="sm:w-[500px] mx-auto h-fit px-4 py-10  text-[#33bdf8]  mt-5 mb-10">
         <div className="p-5 bg-[#1e293bd6] rounded-md">
           <h1 className="text-xl font-bold text-center pb-3">
