@@ -1,14 +1,32 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
+import { getUserByEmail } from "../../../features/user/userApiSlice";
+import Loading from "../../../components/Loading";
 
 const Details = () => {
   const { email } = useParams();
+
+  const [loading, setLoading] = useState(true);
   // token
   const token = Cookies.get("token");
   const [details, setDetails] = useState({});
-  useEffect(() => {}, []);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    (async () => {
+      setLoading(true);
+      const response = await dispatch(getUserByEmail(email));
+      if (response?.payload?.success) {
+        setDetails(response?.payload?.data);
+        setLoading(false);
+      }
+    })();
+  }, [dispatch, email]);
+
+  // loading
+  if (loading) return <Loading />;
 
   return (
     <section className="py-10 px-6 mx-auto">
