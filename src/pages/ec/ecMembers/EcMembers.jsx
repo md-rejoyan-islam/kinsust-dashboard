@@ -25,7 +25,7 @@ const EcMembers = () => {
   const { ec, singleEc, loading } = useSelector((state) => state.ecs);
   const [ecId, setEcId] = useState(ec[ec.length - 1]?.id || "");
 
-  const [EcData, setEcData] = useState([]);
+  const [EcData] = useState([]);
 
   const selectedRef = useRef(null);
 
@@ -101,13 +101,20 @@ const EcMembers = () => {
     return <Loading />;
   }
 
+  console.log(singleEc);
+
   return (
     <>
       <section className="w-full px-4 py-10 bg-[#121a2d]">
         <div>
-          <h1 className=" pb-4 text-center font-bold text-xl text-[#38bdf8]">
-            EC Members
-          </h1>
+          <div className="pb-4">
+            <h1 className=" pb-1 text-center font-bold text-xl text-[#38bdf8]">
+              EC Members
+            </h1>
+            <h3 className="text-sm  text-white/50 text-center">
+              {singleEc?.name}
+            </h3>
+          </div>
           {singleEc?.id && (
             <select
               className="bg-slate-700 text-white rounded-sm mb-2 py-1.5 px-3"
