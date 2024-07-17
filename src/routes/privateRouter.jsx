@@ -21,6 +21,7 @@ import PostGallery from "../pages/galllery/Post/PostGallery.jsx";
 import UserGallery from "../pages/galllery/Users/UserGallery.jsx";
 import AdvisorGallery from "../pages/galllery/Advisors/AdvisorGallery.jsx";
 import NotFound from "../pages/NotFound.jsx";
+import Moderator from "../pages/Admin/Moderator/Moderator.jsx";
 
 const privateRouter = [
   {
@@ -110,6 +111,10 @@ const privateRouter = [
       {
         path: "/gallery/advisor",
         element: <AdvisorGallery />,
+      },
+      {
+        path: "/role/moderator",
+        element: <Moderator />,
       },
       // {
       //   path: "/organizational-week",

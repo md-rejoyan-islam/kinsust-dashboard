@@ -17,7 +17,7 @@ const AdvisorGallery = () => {
   return (
     <section className="w-full p-4 bg-[#121a2d]">
       <h1 className=" pb-4 text-center font-bold text-xl text-[#38bdf8]">
-        All Advisors folder images
+        All Advisors images
       </h1>
       <hr className="h-[1px] bg-zinc-800 w-full border-none" />
       <div className="  grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6 py-4">

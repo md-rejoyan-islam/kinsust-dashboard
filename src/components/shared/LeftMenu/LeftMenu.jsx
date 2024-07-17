@@ -205,7 +205,7 @@ const LeftMenu = ({ openDrawer, setOpenDrawer }) => {
                     name={"Admin"}
                     Icon={MdOutlineAdminPanelSettings}
                     links={[
-                      { name: "Moderator", slug: "/moderator" },
+                      { name: "Moderator", slug: "/role/moderator" },
                       {
                         name: "Administrator",
                         slug: "/gallery/administrator",
