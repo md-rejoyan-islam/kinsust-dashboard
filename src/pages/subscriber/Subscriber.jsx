@@ -16,6 +16,10 @@ const Subscriber = () => {
   const { subscribers, loading } = useSelector((state) => state.subscriber);
   // pagination
   const [currentPage, setCurrentPage] = useState(1);
+
+  // search
+  const [searchValue, setSearchValue] = useState("");
+
   // change any data
   const [change, setChange] = useState(false);
 
@@ -30,8 +34,7 @@ const Subscriber = () => {
   // handle Search
   const handleSearch = (e) => {
     e.preventDefault();
-    const search = e.target.search.value;
-    dispatch(getSubscribers(`?search=${search}`));
+    dispatch(getSubscribers(`?search=${searchValue}`));
   };
 
   // handle update
@@ -95,6 +98,10 @@ const Subscriber = () => {
             type="search"
             name="search"
             className="text-white bg-black/10 px-3 py-2 rounded-md min-w-[250px] border-sky-50/10 focus:outline-none focus:ring-2 ring-blue-500/50 border"
+            value={searchValue}
+            onChange={(e) => {
+              setSearchValue(e.target.value);
+            }}
             placeholder="Search by Email"
           />
           <button
