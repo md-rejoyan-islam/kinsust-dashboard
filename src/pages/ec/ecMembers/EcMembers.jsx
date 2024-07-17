@@ -10,6 +10,7 @@ import {
   updateMemberFromEc,
 } from "../../../features/ec/ecApiSlice";
 import Swal from "sweetalert2";
+import Loading from "../../../components/Loading";
 
 const EcMembers = () => {
   const dispatch = useDispatch();
@@ -97,7 +98,7 @@ const EcMembers = () => {
   }, [dispatch]);
 
   if (loading) {
-    return <div>loading.....</div>;
+    return <Loading />;
   }
 
   return (

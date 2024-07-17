@@ -13,13 +13,14 @@ import {
   updateAdvisor,
 } from "../../../features/advisor/advisorApiSlice";
 import usePhotoPreview from "../../../hook/photoPreviewHook/usePhotoPreview";
+import Loading from "../../../components/Loading";
 
 const AllAdvisors = () => {
   const ApiURL = import.meta.env.VITE_SERVER_URL;
 
   // dispatch
   const dispatch = useDispatch();
-  const { advisors } = useSelector((state) => state.advisor);
+  const { advisors, loading } = useSelector((state) => state.advisor);
   const [modalShow, setModalShow] = useState(false);
 
   //   inputs fields
@@ -104,6 +105,8 @@ const AllAdvisors = () => {
   useEffect(() => {
     dispatch(getAllAdvisors());
   }, [dispatch]);
+
+  if (loading) return <Loading />;
 
   return (
     <>

@@ -11,11 +11,12 @@ import {
   updateProgram,
 } from "../../../features/program/programApiSlice";
 import Swal from "sweetalert2";
+import Loading from "../../../components/Loading";
 
 const AllProgram = () => {
   const ApiURL = import.meta.env.VITE_SERVER_URL;
   const dispatch = useDispatch();
-  const { programs } = useSelector((state) => state.program);
+  const { programs, loading } = useSelector((state) => state.program);
 
   const formField = useRef(null);
 
@@ -94,11 +95,6 @@ const AllProgram = () => {
     }
   };
 
-  // load all programs
-  useEffect(() => {
-    dispatch(getAllProgram(`page=${currentPage}&limit=${limit}`));
-  }, [dispatch, currentPage, limit]);
-
   // modal
   const [modalShow, setModalShow] = useState(false);
 
@@ -109,6 +105,16 @@ const AllProgram = () => {
     setModalShow(true);
     setInputs({ ...program });
   };
+
+  // load all programs
+  useEffect(() => {
+    dispatch(getAllProgram(`page=${currentPage}&limit=${limit}`));
+  }, [dispatch, currentPage, limit]);
+
+  // loading
+
+  if (loading) return <Loading />;
+
   return (
     <>
       <section className="p-4 pb-10 pt-4 w-full bg-[#121a2d]">

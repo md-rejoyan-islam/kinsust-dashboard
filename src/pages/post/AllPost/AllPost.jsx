@@ -9,10 +9,11 @@ import {
   updatePost,
 } from "../../../features/post/postApiSlice";
 import Swal from "sweetalert2";
+import Loading from "../../../components/Loading";
 
 const AllPost = () => {
   const ApiURL = import.meta.env.VITE_SERVER_URL;
-  const { posts } = useSelector((state) => state.post);
+  const { posts, loading } = useSelector((state) => state.post);
   const dispatch = useDispatch();
 
   // pagination
@@ -78,6 +79,9 @@ const AllPost = () => {
   useEffect(() => {
     dispatch(allPosts(`page=${currentPage}&limit=${limit}`));
   }, [dispatch, currentPage, limit]);
+
+  // loading
+  if (loading) return <Loading />;
 
   return (
     <section className="w-full p-4 bg-[#121a2d] pt-4 pb-10">

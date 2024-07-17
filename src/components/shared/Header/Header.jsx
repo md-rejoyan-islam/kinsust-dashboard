@@ -26,6 +26,7 @@ const Header = ({ setOpenDrawer }) => {
   const handleSignOut = () => {
     dispatch(userLogout());
   };
+
   return (
     <section>
       <nav className="border-b border-gray-800 bg-[#0f172a] ">
@@ -40,12 +41,16 @@ const Header = ({ setOpenDrawer }) => {
               onClick={() => {
                 avatarMenu ? setAvatarMenu(false) : setAvatarMenu(true);
               }}
-              className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-700 dark:focus:ring-gray-600"
+              className="flex mr-3 text-sm overflow-hidden bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-700 dark:focus:ring-gray-600"
             >
               <span className="sr-only">Open user menu</span>
               <img
                 className="w-8 h-8 rounded-full"
-                src={user?.photo}
+                src={
+                  import.meta.env.VITE_SERVER_URL +
+                  "/public/images/users/" +
+                  user?.user_photo
+                }
                 alt="userPhoto"
               />
             </button>

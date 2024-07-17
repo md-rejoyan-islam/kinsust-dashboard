@@ -179,14 +179,14 @@ const LeftMenu = ({ openDrawer, setOpenDrawer }) => {
                         name: "Users",
                         slug: "/gallery/users",
                       },
-                      {
-                        name: "Slider",
-                        slug: "/gallery/slider",
-                      },
-                      {
-                        name: "EC",
-                        slug: "/gallery/ec",
-                      },
+                      // {
+                      //   name: "Slider",
+                      //   slug: "/gallery/slider",
+                      // },
+                      // {
+                      //   name: "EC",
+                      //   slug: "/gallery/ec",
+                      // },
                     ]}
                   />
 

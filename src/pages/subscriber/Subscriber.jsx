@@ -9,10 +9,11 @@ import {
   getSubscribers,
   updateSubscriber,
 } from "../../features/subscriber/subscriberApiSlice";
+import Loading from "../../components/Loading";
 
 const Subscriber = () => {
   const dispatch = useDispatch();
-  const { subscribers } = useSelector((state) => state.subscriber);
+  const { subscribers, loading } = useSelector((state) => state.subscriber);
   // pagination
   const [currentPage, setCurrentPage] = useState(1);
   // change any data
@@ -79,6 +80,9 @@ const Subscriber = () => {
   useEffect(() => {
     dispatch(getSubscribers());
   }, [dispatch]);
+
+  // loading
+  if (loading) return <Loading />;
 
   return (
     <>

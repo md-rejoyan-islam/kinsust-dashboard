@@ -11,6 +11,7 @@ export const initialState = {
   programs: { data: [], pagination: {} },
   error: null,
   message: null,
+  loading: true,
 };
 
 const programSlice = createSlice({
@@ -25,20 +26,30 @@ const programSlice = createSlice({
   extraReducers: (builder) => {
     builder
       // create program
+      .addCase(createProgram.pending, (state) => {
+        state.loading = true;
+      })
       .addCase(createProgram.rejected, (state, action) => {
         state.error = action.error.message;
+        state.loading = false;
       })
       .addCase(createProgram.fulfilled, (state, action) => {
         state.message = action.payload.message;
         state.programs.data.push(action.payload.data);
+        state.loading = false;
       })
 
       // update program data
+      .addCase(updateProgram.pending, (state) => {
+        state.loading = true;
+      })
       .addCase(updateProgram.rejected, (state, action) => {
         state.error = action.error.message;
+        state.loading = false;
       })
       .addCase(updateProgram.fulfilled, (state, action) => {
         state.message = action.payload.message;
+        state.loading = false;
         state.programs.data[
           state.programs.data.findIndex(
             (program) => program.id === action.payload.data.id
@@ -47,11 +58,16 @@ const programSlice = createSlice({
       })
 
       // delete program data
+      .addCase(deleteProgram.pending, (state) => {
+        state.loading = true;
+      })
       .addCase(deleteProgram.rejected, (state, action) => {
         state.error = action.error.message;
+        state.loading = false;
       })
       .addCase(deleteProgram.fulfilled, (state, action) => {
         state.message = action.payload.message;
+        state.loading = false;
         state.programs = {
           ...state.programs,
           data: state.programs.data.filter(
@@ -61,10 +77,15 @@ const programSlice = createSlice({
       })
 
       // all program
+      .addCase(getAllProgram.pending, (state) => {
+        state.loading = true;
+      })
       .addCase(getAllProgram.rejected, (state, action) => {
+        state.loading = false;
         state.error = action.error.message;
       })
       .addCase(getAllProgram.fulfilled, (state, action) => {
+        state.loading = false;
         state.programs = action.payload;
       });
   },

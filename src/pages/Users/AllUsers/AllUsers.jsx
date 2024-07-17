@@ -14,6 +14,7 @@ import {
 import { addMemberToEc, allEc } from "../../../features/ec/ecApiSlice";
 import { paginationTheme } from "../../../components/ui/theme";
 import usePhotoPreview from "../../../hook/photoPreviewHook/usePhotoPreview";
+import Loading from "../../../components/Loading";
 
 const AllUsers = () => {
   const ApiURL = import.meta.env.VITE_SERVER_URL;
@@ -170,7 +171,7 @@ const AllUsers = () => {
   // loading
 
   if (loading) {
-    return <div>loading......</div>;
+    return <Loading />;
   }
 
   return (

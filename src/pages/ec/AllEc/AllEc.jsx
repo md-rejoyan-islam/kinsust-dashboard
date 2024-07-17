@@ -5,10 +5,11 @@ import { Modal } from "flowbite-react";
 import { useRef } from "react";
 import Swal from "sweetalert2";
 import { allEc, deleteEc, updateEc } from "../../../features/ec/ecApiSlice";
+import Loading from "../../../components/Loading";
 
 const AllEc = () => {
   const dispatch = useDispatch();
-  const { ec } = useSelector((state) => state.ecs);
+  const { ec, loading } = useSelector((state) => state.ecs);
 
   // inputs
   const [inputs, setInputs] = useState({
@@ -76,6 +77,9 @@ const AllEc = () => {
   useEffect(() => {
     dispatch(allEc());
   }, [dispatch]);
+
+  // loading
+  if (loading) return <Loading />;
 
   return (
     <>

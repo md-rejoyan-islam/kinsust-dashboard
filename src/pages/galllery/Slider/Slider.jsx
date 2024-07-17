@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { MdDelete } from "react-icons/md";
 import ShowToast from "../../../components/toast/Toast";
 
@@ -7,15 +7,6 @@ const Slider = () => {
   // change deteck
   const [change, setChange] = useState(false);
   const [images, setImages] = useState([]);
-  //fetch advisors data
-  useEffect(() => {
-    axios
-      .get("https://backend-kin.onrender.com/api/v1/images/slider")
-      .then((res) => {
-        setImages(res.data.data);
-      })
-      .catch((err) => console.log(err));
-  }, [change]);
 
   const handleDelete = async (name) => {
     try {
@@ -26,11 +17,22 @@ const Slider = () => {
           change ? setChange(false) : setChange(true);
           console.log(res.data);
         })
-        .catch((err) => {});
+        .catch(() => {});
     } catch (error) {
       console.log(error);
     }
   };
+
+  //fetch advisors data
+  useEffect(() => {
+    axios
+      .get("https://backend-kin.onrender.com/api/v1/images/slider")
+      .then((res) => {
+        setImages(res.data.data);
+      })
+      .catch((err) => console.log(err));
+  }, [change]);
+
   return (
     <section className="w-full p-4 bg-[#121a2d]">
       <h1 className=" pb-4 text-center font-bold text-xl text-[#38bdf8]">

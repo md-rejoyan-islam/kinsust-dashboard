@@ -20,6 +20,8 @@ const gellerySlice = createSlice({
   initialState,
   extraReducers: (builder) => {
     builder
+
+      // program
       .addCase(allProgramsPhoto.pending, (state) => {
         state.loading = true;
       })
@@ -30,6 +32,7 @@ const gellerySlice = createSlice({
         state.programs = action.payload.images;
         state.loading = false;
       })
+      // post
       .addCase(allPostPhoto.pending, (state) => {
         state.loading = true;
       })
@@ -40,6 +43,7 @@ const gellerySlice = createSlice({
         state.posts = action.payload.images;
         state.loading = false;
       })
+      // advisors
       .addCase(allAdvisorsPhoto.pending, (state) => {
         state.loading = true;
       })
@@ -50,6 +54,7 @@ const gellerySlice = createSlice({
         state.advisors = action.payload.images;
         state.loading = false;
       })
+      // users
       .addCase(allUsersPhoto.pending, (state) => {
         state.loading = true;
       })
