@@ -12,6 +12,7 @@ import {
 } from "../../../features/program/programApiSlice";
 import Swal from "sweetalert2";
 import Loading from "../../../components/Loading";
+import { Helmet } from "react-helmet-async";
 
 const AllProgram = () => {
   const ApiURL = import.meta.env.VITE_SERVER_URL;
@@ -117,6 +118,9 @@ const AllProgram = () => {
 
   return (
     <>
+      <Helmet>
+        <title>All Program | KIN Dashboard</title>
+      </Helmet>
       <section className="p-4 pb-10 pt-4 w-full bg-[#121a2d]">
         <h1 className=" pb-4 text-center font-bold text-xl text-[#38bdf8]">
           All Programs

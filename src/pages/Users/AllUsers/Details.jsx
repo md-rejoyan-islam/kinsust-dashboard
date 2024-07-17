@@ -8,25 +8,11 @@ const Details = () => {
   // token
   const token = Cookies.get("token");
   const [details, setDetails] = useState({});
-  useEffect(() => {
-    axios
-      .get(
-        `https://backend-kin.onrender.com/api/v1/users?email=${email}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        },
-        [token]
-      )
-      .then((res) => setDetails(res.data.data[0]))
-      .catch((err) => console.log(err));
-  }, [token]);
+  useEffect(() => {}, []);
 
   return (
     <section className="py-10 px-6 mx-auto">
       <div className="m-auto sm:w-[440px] min-w-[360px]   text-[#496079]">
-        {/* <!-- Modal content --> */}
         <div className="relative  rounded-lg shadow bg-[#0d1424] text-[white]">
           <div className="px-6 py-6 lg:px-8 ">
             <h3 className="mb-4 text-xl font-medium text-center">

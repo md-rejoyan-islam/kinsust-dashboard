@@ -9,6 +9,7 @@ import {
 import { Modal } from "flowbite-react";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const Admin = () => {
   const [inputs, setInputs] = useState({
@@ -91,6 +92,9 @@ const Admin = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Admin | KIN Dashboard</title>
+      </Helmet>
       <section className=" p-4 pb-10 pt-4 w-full bg-[#121a2d] ">
         <h1 className=" pb-4 text-center font-bold text-xl text-[#38bdf8]">
           All Admins

@@ -15,6 +15,7 @@ import { addMemberToEc, allEc } from "../../../features/ec/ecApiSlice";
 import { paginationTheme } from "../../../components/ui/theme";
 import usePhotoPreview from "../../../hook/photoPreviewHook/usePhotoPreview";
 import Loading from "../../../components/Loading";
+import { Helmet } from "react-helmet-async";
 
 const AllUsers = () => {
   const ApiURL = import.meta.env.VITE_SERVER_URL;
@@ -176,6 +177,9 @@ const AllUsers = () => {
 
   return (
     <>
+      <Helmet>
+        <title>All Users | KIN Dashboard</title>
+      </Helmet>
       <section className="w-full px-4 py-6 bg-[#121a2d] h-full  max-w-[1200px]  ">
         <h1 className=" pb-4 text-center font-bold text-xl text-[#38bdf8]">
           All Users
@@ -389,6 +393,7 @@ const AllUsers = () => {
         theme={{
           content: {
             inner: "bg-transparent py-6",
+            base: "w-full max-w-md m-auto ",
           },
         }}
       >
@@ -753,6 +758,7 @@ const AllUsers = () => {
         theme={{
           content: {
             inner: "bg-transparent py-6",
+            base: "w-full max-w-md m-auto ",
           },
         }}
       >
@@ -849,6 +855,7 @@ const AllUsers = () => {
         theme={{
           content: {
             inner: "bg-transparent py-6",
+            base: "w-full max-w-md m-auto ",
           },
         }}
       >

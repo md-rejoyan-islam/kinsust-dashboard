@@ -10,6 +10,7 @@ import {
   updateSubscriber,
 } from "../../features/subscriber/subscriberApiSlice";
 import Loading from "../../components/Loading";
+import { Helmet } from "react-helmet-async";
 
 const Subscriber = () => {
   const dispatch = useDispatch();
@@ -89,6 +90,9 @@ const Subscriber = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Subscribers | KIN Dashboard</title>
+      </Helmet>
       <section className="w-full p-4 bg-[#121a2d]">
         <h1 className=" pb-4 text-center font-bold text-xl text-[#38bdf8]">
           All SubScriber

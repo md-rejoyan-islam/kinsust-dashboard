@@ -7,6 +7,7 @@ import {
 import Loading from "../../../components/Loading";
 import { Modal } from "flowbite-react";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const SuperAdmin = () => {
   const [inputs, setInputs] = useState({
@@ -48,6 +49,9 @@ const SuperAdmin = () => {
 
   return (
     <>
+      <Helmet>
+        <title>SuperAdmin | KIN Dashboard</title>
+      </Helmet>
       <section className=" p-4 pb-10 pt-4 w-full bg-[#121a2d] ">
         <h1 className=" pb-4 text-center font-bold text-xl text-[#38bdf8]">
           All SuperAdmins
