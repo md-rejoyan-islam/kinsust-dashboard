@@ -11,6 +11,7 @@ import subscriberReducer from "../features/subscriber/subscriberSlice";
 import ecReducer from "../features/ec/ecSlice";
 import organizationReducer from "../features/organization/organizationSlice";
 import gelleryReducer from "../features/gellery/gellerySlice";
+import roleReducer from "../features/role/roleSlice";
 
 const store = configureStore({
   reducer: {
@@ -25,6 +26,7 @@ const store = configureStore({
     ecs: ecReducer,
     organizations: organizationReducer,
     gellery: gelleryReducer,
+    role: roleReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({}),
 

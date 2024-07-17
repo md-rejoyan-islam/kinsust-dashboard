@@ -21,7 +21,10 @@ import PostGallery from "../pages/galllery/Post/PostGallery.jsx";
 import UserGallery from "../pages/galllery/Users/UserGallery.jsx";
 import AdvisorGallery from "../pages/galllery/Advisors/AdvisorGallery.jsx";
 import NotFound from "../pages/NotFound.jsx";
-import Moderator from "../pages/Admin/Moderator/Moderator.jsx";
+import Admin from "../pages/role/admin/Admin.jsx";
+import SuperAdmin from "../pages/role/superAdmin/SuperAdmin.jsx";
+import SuperAdminGuard from "./guard/SuperAdminGuard.jsx";
+import Organization from "../pages/OrganizationalWeek/Organization.jsx";
 
 const privateRouter = [
   {
@@ -113,17 +116,25 @@ const privateRouter = [
         element: <AdvisorGallery />,
       },
       {
-        path: "/role/moderator",
-        element: <Moderator />,
+        path: "/organizational-week",
+        element: <Organization />,
       },
-      // {
-      //   path: "/organizational-week",
-      //   element: <OrganizationalWeek />,
-      // },
-      // {
-      //   path: "/organizational-week/:id",
-      //   element: <Download />,
-      // },
+      {
+        path: "/role/admin",
+        element: (
+          <SuperAdminGuard>
+            <Admin />
+          </SuperAdminGuard>
+        ),
+      },
+      {
+        path: "/role/super-admin",
+        element: (
+          <SuperAdminGuard>
+            <SuperAdmin />
+          </SuperAdminGuard>
+        ),
+      },
     ],
   },
 ];

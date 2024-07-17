@@ -7,10 +7,13 @@ import { useDispatch } from "react-redux";
 
 import { isEmail } from "../../../helper/helper";
 import { userLogin } from "../../../features/auth/authApiSlice";
+import SmallLoader from "../../../components/SmallLoader";
 
 const Login = () => {
   // dispatch
   const dispatch = useDispatch();
+
+  const [loading, setLoading] = useState(false);
 
   // password show hide
   const [showPassword, setShowPassword] = useState(false);
@@ -30,6 +33,7 @@ const Login = () => {
   // handle htmlForm submit
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     const { email, password } = inputs;
     // input fields check
     if (!email || !password) {
@@ -40,15 +44,8 @@ const Login = () => {
       return toast.error("Invalid email format");
     }
 
-    dispatch(userLogin({ email, password }));
+    dispatch(userLogin({ email, password, setLoading }));
   };
-
-  // const { message, error } = useSelector((state) => state.auth);
-
-  // useEffect(() => {
-  //   message && toast.success(message);
-  //   error && toast.error(error);
-  // });
 
   return (
     <>
@@ -111,7 +108,7 @@ const Login = () => {
                   type="submit"
                   className=" text-[#ffffff] font-bold bg-[#259af8] hover:bg-blue-800  focus:outline-none focus:ring-0  rounded-lg text-sm  w-full px-5 py-2.5 text-center "
                 >
-                  Submit
+                  {loading ? <SmallLoader /> : "Login"}
                 </button>
               </div>
             </form>

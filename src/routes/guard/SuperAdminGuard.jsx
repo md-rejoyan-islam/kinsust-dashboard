@@ -4,21 +4,21 @@ import PropTypes from "prop-types";
 import { getAuthData } from "../../features/auth/authSlice";
 import Loading from "../../components/Loading";
 
-const PrivateGuard = ({ children }) => {
+const SuperAdminGuard = ({ children }) => {
   const location = useLocation();
   const { user, loading } = useSelector(getAuthData);
 
   if (loading) {
     return <Loading />;
   }
-  if (user) {
+  if (user.role === "superAdmin") {
     return children;
   }
-  return <Navigate to={"/login"} state={{ from: location }} replace></Navigate>;
+  return <Navigate to={"/"} state={{ from: location }} replace></Navigate>;
 };
 
-PrivateGuard.propTypes = {
+SuperAdminGuard.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default PrivateGuard;
+export default SuperAdminGuard;

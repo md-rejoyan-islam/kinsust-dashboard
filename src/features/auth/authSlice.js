@@ -22,17 +22,8 @@ const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      // login
-      .addCase(userLogin.pending, (state) => {
-        state.loading = true;
-      })
-      .addCase(userLogin.rejected, (state) => {
-        state.loading = false;
-        // state.error = action.error.message;
-      })
+
       .addCase(userLogin.fulfilled, (state, action) => {
-        state.loading = false;
-        // state.message = action.payload.message;
         state.user = action.payload.data;
       })
       // logout
@@ -43,10 +34,9 @@ const authSlice = createSlice({
         state.error = action.error.message;
         state.loading = false;
       })
-      .addCase(userLogout.fulfilled, (state, action) => {
+      .addCase(userLogout.fulfilled, (state) => {
         state.loading = false;
         state.user = null;
-        state.message = action.payload.message;
         localStorage.removeItem("user");
       })
 

@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 
 import { getAuthData } from "../../features/auth/authSlice";
+import Loading from "../../components/Loading";
 
 const PublicGuard = () => {
   const location = useLocation();
@@ -11,7 +12,7 @@ const PublicGuard = () => {
   const { user, loading } = useSelector(getAuthData);
 
   if (loading) {
-    return <div>loading.....</div>;
+    return <Loading />;
   }
   if (!user) {
     return <Outlet />;

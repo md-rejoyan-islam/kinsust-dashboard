@@ -6,6 +6,7 @@ const ApiURL = import.meta.env.VITE_SERVER_URL;
 
 //  user login
 export const userLogin = createAsyncThunk("auth/userLogin", async (data) => {
+  const { setLoading } = data;
   try {
     const response = await axios.post(
       `${ApiURL}/api/v1/auth/dashboard-login`,
@@ -25,6 +26,8 @@ export const userLogin = createAsyncThunk("auth/userLogin", async (data) => {
       toast.error(error.response.data);
     }
     throw new Error(error.response.data.error.message);
+  } finally {
+    setLoading(false);
   }
 });
 
