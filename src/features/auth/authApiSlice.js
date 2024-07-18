@@ -58,3 +58,24 @@ export const loggedInUser = createAsyncThunk("auth/loggedInUser", async () => {
     throw new Error(error.response.data.error.message);
   }
 });
+
+// password update
+export const authPasswordUpdate = createAsyncThunk(
+  "auth/authPasswordUpdate",
+  async (data) => {
+    try {
+      const response = await axios.patch(
+        `${ApiURL}/api/v1/users/password-update`,
+        data,
+        {
+          withCredentials: true,
+        }
+      );
+      toast.success(response?.data?.message);
+      return response.data;
+    } catch (error) {
+      toast.error(error?.response?.data?.error?.message);
+      throw new Error(error.response.data.error.message);
+    }
+  }
+);

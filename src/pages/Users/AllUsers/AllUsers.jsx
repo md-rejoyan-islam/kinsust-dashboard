@@ -325,7 +325,7 @@ const AllUsers = () => {
                   </td>
                   <td className="px-6 py-4 text-right flex gap-2 items-center">
                     <Link
-                      to={`/all-users/${user.email}`}
+                      to={`/users/all-users/${user.email}`}
                       className="border border-zinc-700 hover:border-zinc-700 px-2 py-1 rounded-sm font-medium  text-blue-600  h-fit"
                     >
                       More
@@ -345,7 +345,6 @@ const AllUsers = () => {
                     <button
                       className="border border-zinc-700 hover:border-zinc-700 px-2 py-1 rounded-sm font-medium h-fit text-blue-600  "
                       onClick={() => {
-                        // credentialRef.current.reset();
                         setCredentialModalShow(true);
                         setInputs({ ...user });
                       }}

@@ -25,6 +25,8 @@ import Admin from "../pages/role/admin/Admin.jsx";
 import SuperAdmin from "../pages/role/superAdmin/SuperAdmin.jsx";
 import SuperAdminGuard from "./guard/SuperAdminGuard.jsx";
 import Organization from "../pages/OrganizationalWeek/Organization.jsx";
+import UserDetails from "../pages/Users/AllUsers/UserDetails.jsx";
+import Profile from "../pages/Profile/Profile.jsx";
 
 const privateRouter = [
   {
@@ -33,11 +35,15 @@ const privateRouter = [
         <Layout />
       </PrivateGuard>
     ),
-    // errorElement: <NotFound />,
+    errorElement: <NotFound />,
     children: [
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
       },
       {
         path: "*",
@@ -50,6 +56,10 @@ const privateRouter = [
       {
         path: "/users/all-users",
         element: <AllUsers />,
+      },
+      {
+        path: "/users/all-users/:email",
+        element: <UserDetails />,
       },
       {
         path: "/advisors/all-advisors",

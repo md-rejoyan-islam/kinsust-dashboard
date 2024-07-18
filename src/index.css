@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.details-table table,
+tr,
+td {
+  border: 1px solid rgb(38, 33, 70);
+  border-collapse: collapse;
+}
+
+.details-table tr {
+  cursor: pointer;
+}
+.details-table tr:hover {
+  background-color: #111827;
+}
+
+.details-table tr td:first-child {
+  font-weight: 600;
+}
+
+.details-table td {
+  padding: 8px 20px;
+}

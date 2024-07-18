@@ -11,6 +11,7 @@ import { TfiGallery } from "react-icons/tfi";
 import PropTypes from "prop-types";
 import SidebarMenu from "../../dropDown/SidebarMenu";
 import { useSelector } from "react-redux";
+import { ImProfile } from "react-icons/im";
 
 const LeftMenu = ({ openDrawer, setOpenDrawer }) => {
   const pathaname = useLocation().pathname;
@@ -209,6 +210,19 @@ const LeftMenu = ({ openDrawer, setOpenDrawer }) => {
                     ]}
                   />
                 )}
+
+                {/* user profile  */}
+                <li className="singleItem">
+                  <NavLink
+                    to={"/profile"}
+                    className="singleItem flex items-center px-0   py-2 text-[#91a3b8] rounded-lg "
+                  >
+                    <span>
+                      <ImProfile className="text-xl  ml-2 mr-3 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" />
+                    </span>
+                    <span>Profile</span>
+                  </NavLink>
+                </li>
               </Sidebar.ItemGroup>
             </Sidebar.Items>
           </Sidebar>

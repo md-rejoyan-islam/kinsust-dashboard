@@ -112,9 +112,12 @@ export const getUserByEmail = createAsyncThunk(
   "users/getUserByEmail",
   async (email) => {
     try {
-      const response = await axios.get(`${ApiURL}/api/v1/users/${email}`, {
-        withCredentials: true,
-      });
+      const response = await axios.get(
+        `${ApiURL}/api/v1/users?email=${email}`,
+        {
+          withCredentials: true,
+        }
+      );
       return response.data;
     } catch (error) {
       throw new Error(error.response.data.error.message);
