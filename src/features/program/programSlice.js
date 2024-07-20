@@ -91,8 +91,6 @@ const programSlice = createSlice({
   },
 });
 
-// selectors
-
 // actions
 export const { setMessageEmpty } = programSlice.actions;
 

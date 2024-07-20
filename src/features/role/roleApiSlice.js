@@ -3,6 +3,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 const ApiURL = import.meta.env.VITE_SERVER_URL;
 
+// get all admin
 export const getAdmins = createAsyncThunk("roles/getAdmins", async () => {
   try {
     const response = await axios.get(`${ApiURL}/api/v1/users?role=admin`, {
@@ -15,6 +16,7 @@ export const getAdmins = createAsyncThunk("roles/getAdmins", async () => {
   }
 });
 
+// get all superadmin
 export const getSuperAdmins = createAsyncThunk(
   "roles/getSuperAdmins",
   async () => {
@@ -32,7 +34,7 @@ export const getSuperAdmins = createAsyncThunk(
   }
 );
 
-// password update
+// password update by superadmin
 export const updatePasswordBySuperAdmin = createAsyncThunk(
   "roles/updatePasswordBySuperAdmin",
   async (data) => {

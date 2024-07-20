@@ -26,7 +26,7 @@ const roleSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      // all users
+      // get all admins
       .addCase(getAdmins.pending, (state) => {
         state.loading = true;
       })
@@ -38,6 +38,7 @@ const roleSlice = createSlice({
         state.loading = false;
         state.admins = action.payload.data;
       })
+      //get all superadmin
       .addCase(getSuperAdmins.pending, (state) => {
         state.loading = true;
       })
@@ -49,6 +50,7 @@ const roleSlice = createSlice({
         state.loading = false;
         state.superAdmins = action.payload.data;
       })
+      // update role
       .addCase(updateRole.pending, (state) => {
         state.loading = true;
       })
@@ -62,6 +64,7 @@ const roleSlice = createSlice({
             ? [...state.admins, action.payload.data]
             : state.admins;
       })
+      // remove from admin
       .addCase(removeFromAdmin.pending, (state) => {
         state.loading = true;
       })
