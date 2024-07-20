@@ -1,4 +1,4 @@
-import Login from "../pages/login/LoginPage/Login";
+import Login from "../pages/login/Login";
 import NotFound from "../pages/NotFound";
 import PublicGuard from "./guard/PublicGuard";
 

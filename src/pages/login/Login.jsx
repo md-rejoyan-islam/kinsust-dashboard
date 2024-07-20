@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+
 import { toast } from "react-toastify";
 import { IoEyeSharp } from "react-icons/io5";
 import { BsFillEyeSlashFill } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 
-import { isEmail } from "../../../helper/helper";
-import { userLogin } from "../../../features/auth/authApiSlice";
-import SmallLoader from "../../../components/SmallLoader";
+import { isEmail } from "../../helper/helper";
+import { userLogin } from "../../features/auth/authApiSlice";
+import SmallLoader from "../../components/SmallLoader";
 import { Helmet } from "react-helmet-async";
 
 const Login = () => {
@@ -74,8 +74,7 @@ const Login = () => {
                   onChange={handleChange}
                   value={inputs.email}
                   id="email"
-                  className="bg-gray-900 border border-gray-700 text-[#91a3b8] text-sm rounded-lg focus:ring-0 focus:border-zinc-600 block w-full p-2.5 
-                  "
+                  className="bg-gray-900 border border-gray-700 text-[#91a3b8] text-sm rounded-lg focus:ring-0 focus:border-sky-500 focus:outline-none  block w-full p-2.5 "
                   placeholder="Enter  Email Address"
                 />
               </div>
@@ -88,8 +87,7 @@ const Login = () => {
                   name="password"
                   onChange={handleChange}
                   value={inputs.password}
-                  className="bg-gray-900 border border-gray-700 text-[#91a3b8] text-sm rounded-lg focus:ring-0 focus:border-zinc-600 block w-full p-2.5 
-                  "
+                  className="bg-gray-900 border border-gray-700 text-[#91a3b8] text-sm rounded-lg focus:ring-0 focus:border-sky-500 focus:outline-none  block w-full p-2.5 "
                   placeholder="Enter password"
                 />
                 <span
@@ -103,11 +101,7 @@ const Login = () => {
                   {showPassword ? <BsFillEyeSlashFill /> : <IoEyeSharp />}
                 </span>
               </div>
-              <div className="mb-4">
-                <Link to={"/login/identify"} className="hover:underline">
-                  Forgotten password?
-                </Link>
-              </div>
+
               <div className="w-full">
                 <button
                   type="submit"
