@@ -96,9 +96,6 @@ const usersSlice = createSlice({
   },
 });
 
-// selectors
-// export const getAuthData = (state) => state.auth;
-
 // actions
 export const { setMessageEmpty } = usersSlice.actions;
 

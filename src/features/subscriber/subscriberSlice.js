@@ -72,8 +72,6 @@ const subscriberSlice = createSlice({
   },
 });
 
-// selectors
-
 // actions
 export const { setMessageEmpty } = subscriberSlice.actions;
 
