@@ -2,9 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-.details-table table,
-tr,
-td {
+.details-table tr,
+.details-table td {
   border: 1px solid rgb(38, 33, 70);
   border-collapse: collapse;
 }

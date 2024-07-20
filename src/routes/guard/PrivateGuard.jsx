@@ -2,14 +2,14 @@ import { useSelector } from "react-redux";
 import { Navigate, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import { getAuthData } from "../../features/auth/authSlice";
-import Loading from "../../components/Loading";
+import IntialLoading from "../../components/ui/IntialLoading";
 
 const PrivateGuard = ({ children }) => {
   const location = useLocation();
   const { user, loading } = useSelector(getAuthData);
 
   if (loading) {
-    return <Loading />;
+    return <IntialLoading />;
   }
   if (user) {
     return children;

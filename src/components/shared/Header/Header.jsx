@@ -76,9 +76,6 @@ const Header = ({ setOpenDrawer }) => {
                   <li>
                     <Link
                       to={"/profile"}
-                      onClick={() => {
-                        setAvatarMenu(false);
-                      }}
                       className="block px-4 py-2 text-sm text-[#91a3b8]  hover:bg-[#1f2937] dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                     >
                       Profile
