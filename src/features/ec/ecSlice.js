@@ -103,8 +103,7 @@ const newsSlice = createSlice({
         state.loading = false;
       })
 
-      // single ec data
-
+      // get single ec data
       .addCase(singleEcData.pending, (state) => {
         state.loading = true;
       })
@@ -150,8 +149,6 @@ const newsSlice = createSlice({
       });
   },
 });
-
-// selectors
 
 // actions
 export const { setMessageEmpty } = newsSlice.actions;
