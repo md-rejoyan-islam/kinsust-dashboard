@@ -10,6 +10,11 @@ export default function SidebarMenu({ Icon, name, links, isActive }) {
       className={`${
         isActive ? "bg-gray-800" : ""
       } mb-2 flex items-center w-full p-2 text-[#91a3b8] transition duration-75 rounded-lg  group hover:bg-gray-800 dark:text-white dark:hover:bg-gray-800 gap-3`}
+      theme={{
+        icon: {
+          open: "rotate-180",
+        },
+      }}
     >
       <Sidebar.Items
         style={{
