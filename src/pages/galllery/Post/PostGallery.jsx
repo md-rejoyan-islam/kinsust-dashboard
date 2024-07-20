@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { allPostPhoto } from "../../../features/gellery/gelleryApiSlice";
+import { allPostPhoto } from "../../../features/gallery/galleryApiSlice";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import Loading from "../../../components/loading/Loading";
 import { Helmet } from "react-helmet-async";
 
 const PostGallery = () => {
   const dispatch = useDispatch();
-  const { posts, loading } = useSelector((state) => state.gellery);
+  const { posts, loading } = useSelector((state) => state.gallery);
 
   useEffect(() => {
     dispatch(allPostPhoto());

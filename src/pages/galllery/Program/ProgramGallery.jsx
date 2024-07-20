@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { allProgramsPhoto } from "../../../features/gellery/gelleryApiSlice";
+import { allProgramsPhoto } from "../../../features/gallery/galleryApiSlice";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import Loading from "../../../components/loading/Loading";
 import { Helmet } from "react-helmet-async";
@@ -8,7 +8,7 @@ import { Helmet } from "react-helmet-async";
 const ProgramGallery = () => {
   const dispatch = useDispatch();
 
-  const { programs, loading } = useSelector((state) => state.gellery);
+  const { programs, loading } = useSelector((state) => state.gallery);
 
   useEffect(() => {
     dispatch(allProgramsPhoto());

@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { allAdvisorsPhoto } from "../../../features/gellery/gelleryApiSlice";
+import { allAdvisorsPhoto } from "../../../features/gallery/galleryApiSlice";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import Loading from "../../../components/loading/Loading";
 import { Helmet } from "react-helmet-async";
 
 const AdvisorGallery = () => {
   const dispatch = useDispatch();
-  const { advisors, loading } = useSelector((state) => state.gellery);
+  const { advisors, loading } = useSelector((state) => state.gallery);
 
   useEffect(() => {
     dispatch(allAdvisorsPhoto());

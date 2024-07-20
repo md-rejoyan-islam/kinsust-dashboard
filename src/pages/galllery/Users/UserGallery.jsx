@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { allUsersPhoto } from "../../../features/gellery/gelleryApiSlice";
+import { allUsersPhoto } from "../../../features/gallery/galleryApiSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import Loading from "../../../components/loading/Loading";
@@ -8,7 +8,7 @@ import { Helmet } from "react-helmet-async";
 const UserGallery = () => {
   // change deteck
   const dispatch = useDispatch();
-  const { users, loading } = useSelector((state) => state.gellery);
+  const { users, loading } = useSelector((state) => state.gallery);
 
   useEffect(() => {
     dispatch(allUsersPhoto());

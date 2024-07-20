@@ -4,7 +4,7 @@ import {
   allPostPhoto,
   allProgramsPhoto,
   allUsersPhoto,
-} from "./gelleryApiSlice";
+} from "./galleryApiSlice";
 
 // initial state
 export const initialState = {
@@ -15,13 +15,12 @@ export const initialState = {
   loading: true,
 };
 
-const gellerySlice = createSlice({
-  name: "gellery",
+const gallerySlice = createSlice({
+  name: "gallery",
   initialState,
   extraReducers: (builder) => {
     builder
-
-      // program
+      // all program photo
       .addCase(allProgramsPhoto.pending, (state) => {
         state.loading = true;
       })
@@ -32,7 +31,7 @@ const gellerySlice = createSlice({
         state.programs = action.payload.images;
         state.loading = false;
       })
-      // post
+      // all post photo
       .addCase(allPostPhoto.pending, (state) => {
         state.loading = true;
       })
@@ -43,7 +42,7 @@ const gellerySlice = createSlice({
         state.posts = action.payload.images;
         state.loading = false;
       })
-      // advisors
+      // all advisors photo
       .addCase(allAdvisorsPhoto.pending, (state) => {
         state.loading = true;
       })
@@ -54,7 +53,7 @@ const gellerySlice = createSlice({
         state.advisors = action.payload.images;
         state.loading = false;
       })
-      // users
+      // all users photo
       .addCase(allUsersPhoto.pending, (state) => {
         state.loading = true;
       })
@@ -71,4 +70,4 @@ const gellerySlice = createSlice({
 // selectors
 
 // exports
-export default gellerySlice.reducer;
+export default gallerySlice.reducer;

@@ -10,7 +10,7 @@ import newsReducer from "../features/news/newsSlice";
 import subscriberReducer from "../features/subscriber/subscriberSlice";
 import ecReducer from "../features/ec/ecSlice";
 import organizationReducer from "../features/organization/organizationSlice";
-import gelleryReducer from "../features/gellery/gellerySlice";
+import galleryReducer from "../features/gallery/gallerySlice";
 import roleReducer from "../features/role/roleSlice";
 
 const store = configureStore({
@@ -25,7 +25,7 @@ const store = configureStore({
     subscriber: subscriberReducer,
     ecs: ecReducer,
     organizations: organizationReducer,
-    gellery: gelleryReducer,
+    gallery: galleryReducer,
     role: roleReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({}),

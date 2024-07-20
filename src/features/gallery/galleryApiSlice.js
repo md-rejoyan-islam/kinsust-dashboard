@@ -1,11 +1,10 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-
 const ApiURL = import.meta.env.VITE_SERVER_URL;
 
 // all programs photo
 export const allProgramsPhoto = createAsyncThunk(
-  "gellery/allProgramsPhoto",
+  "gallery/allProgramsPhoto",
   async () => {
     try {
       const response = await axios.get(`${ApiURL}/api/v1/images/programs`, {
@@ -20,7 +19,7 @@ export const allProgramsPhoto = createAsyncThunk(
 
 // all post photo
 export const allPostPhoto = createAsyncThunk(
-  "gellery/allPostPhoto",
+  "gallery/allPostPhoto",
   async () => {
     try {
       const response = await axios.get(`${ApiURL}/api/v1/images/posts`, {
@@ -35,7 +34,7 @@ export const allPostPhoto = createAsyncThunk(
 
 // all advisors photo
 export const allAdvisorsPhoto = createAsyncThunk(
-  "gellery/allAdvisorsPhoto",
+  "gallery/allAdvisorsPhoto",
   async () => {
     try {
       const response = await axios.get(`${ApiURL}/api/v1/images/advisors`, {
@@ -50,7 +49,7 @@ export const allAdvisorsPhoto = createAsyncThunk(
 
 // all users photo
 export const allUsersPhoto = createAsyncThunk(
-  "gellery/allUsersPhoto",
+  "gallery/allUsersPhoto",
   async () => {
     try {
       const response = await axios.get(`${ApiURL}/api/v1/images/users`, {
