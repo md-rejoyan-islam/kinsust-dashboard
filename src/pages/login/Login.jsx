@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 
 import { isEmail } from "../../helper/helper";
 import { userLogin } from "../../features/auth/authApiSlice";
-import SmallLoader from "../../components/SmallLoader";
+import SmallLoader from "../../components/loading/SmallLoader";
 import { Helmet } from "react-helmet-async";
 
 const Login = () => {

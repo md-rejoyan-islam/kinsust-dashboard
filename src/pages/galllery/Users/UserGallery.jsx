@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { allUsersPhoto } from "../../../features/gellery/gelleryApiSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { PhotoProvider, PhotoView } from "react-photo-view";
-import Loading from "../../../components/Loading";
+import Loading from "../../../components/loading/Loading";
 import { Helmet } from "react-helmet-async";
 
 const UserGallery = () => {

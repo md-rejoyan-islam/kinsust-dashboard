@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { getUserByEmail } from "../../../features/user/userApiSlice";
-import Loading from "../../../components/Loading";
+import Loading from "../../../components/loading/Loading";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 
 const UserDetails = () => {

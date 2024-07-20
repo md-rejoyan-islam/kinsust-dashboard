@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import { getAuthData } from "../../features/auth/authSlice";
-import IntialLoading from "../../components/ui/IntialLoading";
+import IntialLoading from "../../components/loading/IntialLoading";
 
 const PublicGuard = () => {
   const location = useLocation();

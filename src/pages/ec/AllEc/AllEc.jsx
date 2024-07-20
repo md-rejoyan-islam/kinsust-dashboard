@@ -5,7 +5,7 @@ import { Modal } from "flowbite-react";
 import { useRef } from "react";
 import Swal from "sweetalert2";
 import { allEc, deleteEc, updateEc } from "../../../features/ec/ecApiSlice";
-import Loading from "../../../components/Loading";
+import Loading from "../../../components/loading/Loading";
 import { Helmet } from "react-helmet-async";
 
 const AllEc = () => {

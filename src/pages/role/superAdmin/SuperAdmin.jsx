@@ -4,7 +4,7 @@ import {
   getSuperAdmins,
   updatePasswordBySuperAdmin,
 } from "../../../features/role/roleApiSlice";
-import Loading from "../../../components/Loading";
+import Loading from "../../../components/loading/Loading";
 import { Modal } from "flowbite-react";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";

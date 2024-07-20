@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { Navigate, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import { getAuthData } from "../../features/auth/authSlice";
-import Loading from "../../components/Loading";
+import Loading from "../../components/loading/Loading";
 
 const SuperAdminGuard = ({ children }) => {
   const location = useLocation();

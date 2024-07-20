@@ -14,7 +14,7 @@ import {
 import { addMemberToEc, allEc } from "../../../features/ec/ecApiSlice";
 import { paginationTheme } from "../../../components/ui/theme";
 import usePhotoPreview from "../../../hook/photoPreviewHook/usePhotoPreview";
-import Loading from "../../../components/Loading";
+import Loading from "../../../components/loading/Loading";
 import { Helmet } from "react-helmet-async";
 
 const AllUsers = () => {

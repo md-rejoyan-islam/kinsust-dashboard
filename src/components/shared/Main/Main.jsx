@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
-import Header from "../Header/Header";
-import LeftMenu from "../LeftMenu/LeftMenu";
+import LeftMenu from "../leftMenu/LeftMenu";
+import Header from "../header/Header";
 
 const Main = () => {
   return (
