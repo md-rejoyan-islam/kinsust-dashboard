@@ -187,100 +187,97 @@ const AllPost = () => {
             </div>
           )}
         </div>
-
-        <Modal
-          show={modalShow}
-          position={"center"}
-          size={"md"}
-          onClose={() => setModalShow(false)}
-          dismissible
-          className="bg-violet-500/10 "
-          theme={{
-            content: {
-              inner: "bg-transparent py-6",
-            },
-          }}
-        >
-          <Modal.Body className="p-0 ">
-            <div className="m-auto w-full max-w-md  text-[#99b0ca]">
-              {/* <!-- Modal content --> */}
-              <div className="relative  rounded-lg shadow bg-[#0d1424] text-[white]">
-                <button
-                  type="button"
-                  className="absolute top-3 right-2.5 text-gray-400 bg-[#1f2937] hover:bg-gray-700 hover:text-gray-300 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center "
-                  onClick={() => {
-                    setModalShow(false);
-                  }}
+      </section>
+      <Modal
+        show={modalShow}
+        position={"center"}
+        size={"md"}
+        onClose={() => setModalShow(false)}
+        dismissible
+        className="bg-violet-500/10 "
+        theme={{
+          content: {
+            inner: "bg-transparent py-6",
+            base: "w-full max-w-md m-auto ",
+          },
+        }}
+      >
+        <Modal.Body className="p-0 ">
+          <div className="m-auto w-full max-w-md  text-[#99b0ca]">
+            {/* <!-- Modal content --> */}
+            <div className="relative  rounded-lg shadow bg-[#0d1424] text-[white]">
+              <button
+                type="button"
+                className="absolute top-3 right-2.5 text-gray-400 bg-[#1f2937] hover:bg-gray-700 hover:text-gray-300 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center "
+                onClick={() => {
+                  setModalShow(false);
+                }}
+              >
+                <svg
+                  aria-hidden="true"
+                  className="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <svg
-                    aria-hidden="true"
-                    className="w-5 h-5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                      clipRule="evenodd"
-                    ></path>
-                  </svg>
-                  <span className="sr-only">Close modal</span>
-                </button>
-                <div className="px-6 py-6 lg:px-8 ">
-                  <h3 className="mb-4 text-xl font-medium text-center">
-                    Update Post Data
-                  </h3>
-                  <form
-                    className="space-y-6"
-                    onSubmit={handleSubmit}
-                    ref={formRef}
-                  >
-                    <div>
-                      <label className="block mb-2 text-sm font-medium text-[#91a3b8]">
-                        Slug
-                      </label>
-                      <input
-                        type="text"
-                        name="slug"
-                        defaultValue={inputs.slug}
-                        id="email"
-                        className="bg-gray-900 border border-gray-700 text-[#91a3b8] text-sm rounded-sm focus:ring-0 focus:border-gray-500 block w-full p-2.5 
+                  <path
+                    fillRule="evenodd"
+                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  ></path>
+                </svg>
+                <span className="sr-only">Close modal</span>
+              </button>
+              <div className="px-6 py-6 lg:px-8 ">
+                <h3 className="mb-4 text-xl font-medium text-center">
+                  Update Post Data
+                </h3>
+                <form
+                  className="space-y-6"
+                  onSubmit={handleSubmit}
+                  ref={formRef}
+                >
+                  <div>
+                    <label className="block mb-2 text-sm font-medium text-[#91a3b8]">
+                      Slug
+                    </label>
+                    <input
+                      type="text"
+                      name="slug"
+                      defaultValue={inputs.slug}
+                      id="email"
+                      className="bg-gray-900 border border-gray-700 text-[#91a3b8] text-sm rounded-sm focus:ring-0 focus:border-gray-500 block w-full p-2.5 
                       "
-                        placeholder="Enter advisor name"
-                      />
-                    </div>
-                    <div className="mb-6 w-full">
-                      <label
-                        htmlFor="name"
-                        className="block mb-2 text-sm font-medium text-[#91a3b8] dark:text-white"
-                      >
-                        Post Date
-                      </label>
-                      <input
-                        type="date"
-                        name="date"
-                        defaultValue={inputs.date}
-                        // onChange={(e) =>
-                        //   setInputs({ ...inputs, date: e.target.value })
-                        // }
-                        className=" bg-gray-900 border border-gray-700 text-[#91a3b8] text-sm rounded-lg focus:ring-0 focus:border-zinc-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      />
-                    </div>
-
-                    <button
-                      type="submit"
-                      className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-0 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
+                      placeholder="Enter advisor name"
+                    />
+                  </div>
+                  <div className="mb-6 w-full">
+                    <label
+                      htmlFor="name"
+                      className="block mb-2 text-sm font-medium text-[#91a3b8] dark:text-white"
                     >
-                      Update
-                    </button>
-                  </form>
-                </div>
+                      Post Date
+                    </label>
+                    <input
+                      type="date"
+                      name="date"
+                      defaultValue={inputs.date}
+                      className=" bg-gray-900 border border-gray-700 text-[#91a3b8] text-sm rounded-lg focus:ring-0 focus:border-zinc-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-0 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
+                  >
+                    Update
+                  </button>
+                </form>
               </div>
             </div>
-          </Modal.Body>
-        </Modal>
-      </section>
+          </div>
+        </Modal.Body>
+      </Modal>
     </>
   );
 };
