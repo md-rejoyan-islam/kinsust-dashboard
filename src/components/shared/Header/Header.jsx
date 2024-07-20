@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo/KIN Logo white-01.png";
 
@@ -76,7 +76,7 @@ const Header = ({ setOpenDrawer }) => {
                   <li>
                     <Link
                       to={"/profile"}
-                      className="block px-4 py-2 text-sm text-[#91a3b8]  hover:bg-[#1f2937] dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                      className="block px-4 py-2 text-sm text-[#91a3b8]  hover:bg-white/10 dark:text-gray-200 dark:hover:text-white"
                     >
                       Profile
                     </Link>
@@ -85,7 +85,7 @@ const Header = ({ setOpenDrawer }) => {
                   <li>
                     <button
                       onClick={handleSignOut}
-                      className="text-left w-full  px-4 py-2 text-sm text-[#91a3b8]  hover:bg-[#1f2937] dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                      className="block px-4 py-2 w-full text-left text-sm text-[#91a3b8]  hover:bg-white/10 dark:text-gray-200 dark:hover:text-white"
                     >
                       Sign out
                     </button>
