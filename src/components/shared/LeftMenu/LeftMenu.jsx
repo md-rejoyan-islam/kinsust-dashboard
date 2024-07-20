@@ -102,18 +102,6 @@ const LeftMenu = ({ openDrawer, setOpenDrawer }) => {
                     },
                   ]}
                 />
-                {/* <SidebarMenu
-                  name={"Sliders"}
-                  Icon={BiSlider}
-                  isActive={pathaname.includes("/sliders/")}
-                  links={[
-                    { name: "All Sliders", slug: "/sliders/all-sliders" },
-                    {
-                      name: "Add Sliders",
-                      slug: "/sliders/add-slider",
-                    },
-                  ]}
-                /> */}
                 <SidebarMenu
                   name={"Program"}
                   Icon={MdEventRepeat}
@@ -139,6 +127,53 @@ const LeftMenu = ({ openDrawer, setOpenDrawer }) => {
                   ]}
                 />
 
+                <SidebarMenu
+                  name={"Gallery"}
+                  Icon={TfiGallery}
+                  isActive={pathaname.includes("/gallery/")}
+                  links={[
+                    { name: "Program", slug: "/gallery/program" },
+                    {
+                      name: "Post",
+                      slug: "/gallery/post",
+                    },
+                    {
+                      name: "Advisor",
+                      slug: "/gallery/advisor",
+                    },
+                    {
+                      name: "Users",
+                      slug: "/gallery/users",
+                    },
+                  ]}
+                />
+                {/* super admin route  */}
+                {user?.role === "superAdmin" && (
+                  <SidebarMenu
+                    name={"Role"}
+                    Icon={MdOutlineAdminPanelSettings}
+                    links={[
+                      { name: "Admin", slug: "/role/admin" },
+                      {
+                        name: "Super Admin",
+                        slug: "/role/super-admin",
+                      },
+                    ]}
+                  />
+                )}
+
+                <li className="singleItem">
+                  <NavLink
+                    to={"/organizational-week"}
+                    className="singleItem flex items-center px-0   py-2 text-[#91a3b8] rounded-lg "
+                  >
+                    <span>
+                      <GiOrganigram className="text-xl  ml-2 mr-3 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" />
+                    </span>
+                    <span>Organizational Week</span>
+                  </NavLink>
+                </li>
+
                 <li className="singleItem">
                   <NavLink
                     to={"/subscriber"}
@@ -162,54 +197,6 @@ const LeftMenu = ({ openDrawer, setOpenDrawer }) => {
                     <span>Subscriber</span>
                   </NavLink>
                 </li>
-
-                <SidebarMenu
-                  name={"Gallery"}
-                  Icon={TfiGallery}
-                  isActive={pathaname.includes("/gallery/")}
-                  links={[
-                    { name: "Program", slug: "/gallery/program" },
-                    {
-                      name: "Post",
-                      slug: "/gallery/post",
-                    },
-                    {
-                      name: "Advisor",
-                      slug: "/gallery/advisor",
-                    },
-                    {
-                      name: "Users",
-                      slug: "/gallery/users",
-                    },
-                  ]}
-                />
-
-                <li className="singleItem">
-                  <NavLink
-                    to={"/organizational-week"}
-                    className="singleItem flex items-center px-0   py-2 text-[#91a3b8] rounded-lg "
-                  >
-                    <span>
-                      <GiOrganigram className="text-xl  ml-2 mr-3 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" />
-                    </span>
-                    <span>Organizational Week</span>
-                  </NavLink>
-                </li>
-
-                {/* super admin route  */}
-                {user?.role === "superAdmin" && (
-                  <SidebarMenu
-                    name={"Role"}
-                    Icon={MdOutlineAdminPanelSettings}
-                    links={[
-                      { name: "Admin", slug: "/role/admin" },
-                      {
-                        name: "Super Admin",
-                        slug: "/role/super-admin",
-                      },
-                    ]}
-                  />
-                )}
 
                 {/* user profile  */}
                 <li className="singleItem">

@@ -212,6 +212,7 @@ const Subscriber = () => {
         theme={{
           content: {
             inner: "bg-transparent py-6",
+            base: "w-full max-w-md m-auto ",
           },
         }}
       >
