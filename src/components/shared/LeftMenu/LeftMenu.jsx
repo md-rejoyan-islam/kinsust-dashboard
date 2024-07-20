@@ -168,7 +168,7 @@ const LeftMenu = ({ openDrawer, setOpenDrawer }) => {
                     className="singleItem flex items-center px-0   py-2 text-[#91a3b8] rounded-lg "
                   >
                     <span>
-                      <GiOrganigram className="text-xl  ml-2 mr-3 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" />
+                      <GiOrganigram className="text-xl  ml-3 mr-3 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" />
                     </span>
                     <span>Organizational Week</span>
                   </NavLink>
@@ -177,7 +177,7 @@ const LeftMenu = ({ openDrawer, setOpenDrawer }) => {
                 <li className="singleItem">
                   <NavLink
                     to={"/subscriber"}
-                    className="singleItem flex items-center px-0   py-2 text-[#91a3b8] rounded-lg "
+                    className="singleItem flex items-center px-0    py-2 text-[#91a3b8] rounded-lg "
                   >
                     <svg
                       stroke="currentColor"
@@ -205,7 +205,7 @@ const LeftMenu = ({ openDrawer, setOpenDrawer }) => {
                     className="singleItem flex items-center px-0   py-2 text-[#91a3b8] rounded-lg "
                   >
                     <span>
-                      <ImProfile className="text-xl  ml-2 mr-3 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" />
+                      <ImProfile className="text-xl  ml-3 mr-3 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" />
                     </span>
                     <span>Profile</span>
                   </NavLink>
