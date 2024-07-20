@@ -29,8 +29,7 @@ const store = configureStore({
     role: roleReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({}),
-
-  devTools: true,
+  devTools: false,
 });
 
 // export store

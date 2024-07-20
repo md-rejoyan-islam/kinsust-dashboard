@@ -1,11 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import usePhotoPreview from "../../hook/photoPreviewHook/usePhotoPreview";
-import ApiURL from "../../components/apiURL/ApiURL";
+
 import { Modal, Pagination } from "flowbite-react";
 import Download from "./Download";
-
+const ApiURL = import.meta.env.VITE_SERVER_URL;
 const OrganizationalWeek = () => {
   // dispatch
   const dispatch = useDispatch();

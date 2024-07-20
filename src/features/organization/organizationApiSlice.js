@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import ApiURL from "../../components/apiURL/ApiURL";
 
+const ApiURL = import.meta.env.VITE_SERVER_URL;
 
 // get all organization member  data
 export const getAllOrgData = createAsyncThunk(
@@ -48,7 +48,6 @@ export const singleOrgData = createAsyncThunk(
   }
 );
 
-
 // update organization member data
 export const updateOrgData = createAsyncThunk(
   "orgMembersData/updateOrgData",
@@ -75,9 +74,12 @@ export const deleteOrgData = createAsyncThunk(
   "orgMembersData/deleteOrgData",
   async (id) => {
     try {
-      const response = await axios.delete(`${ApiURL}/api/v1/org-members/${id}`, {
-        withCredentials: true,
-      });
+      const response = await axios.delete(
+        `${ApiURL}/api/v1/org-members/${id}`,
+        {
+          withCredentials: true,
+        }
+      );
       return response.data;
     } catch (error) {
       throw new Error(error.response.data.error.message);

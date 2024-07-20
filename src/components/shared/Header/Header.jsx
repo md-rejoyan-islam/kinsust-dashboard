@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import logo from "../../../assets/logo/KIN Logo white-01.png";
+import logo from "../../../assets/logo/kin_logo.png";
 
 import { useDispatch, useSelector } from "react-redux";
 import { userLogout } from "../../../features/auth/authApiSlice";

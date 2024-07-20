@@ -1,19 +1,14 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Modal, Pagination } from "flowbite-react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import usePhotoPreview from "../../../hook/photoPreviewHook/usePhotoPreview";
 import { updateSlider } from "../../../features/slider/sliderApiSlice";
 
 const AllSlider = () => {
   const ApiURL = import.meta.env.VITE_SERVER_URL;
 
   const dispatch = useDispatch();
-  const {
-    slider: sliders,
-    message,
-    error,
-  } = useSelector((state) => state.slider);
+  const { slider: sliders } = useSelector((state) => state.slider);
 
   // pagination
   const [currentPage, setCurrentPage] = useState(1);
