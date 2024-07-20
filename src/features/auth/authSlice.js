@@ -22,7 +22,7 @@ const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-
+      // login
       .addCase(userLogin.fulfilled, (state, action) => {
         state.user = action.payload.data;
       })
@@ -46,14 +46,12 @@ const authSlice = createSlice({
       })
       .addCase(loggedInUser.rejected, (state) => {
         state.loading = false;
-        // state.error = action.error.message;
         state.user = null;
       })
       .addCase(loggedInUser.fulfilled, (state, action) => {
         state.loading = false;
         state.user = action.payload.data;
         localStorage.setItem("user", JSON.stringify(action.payload.data));
-        // state.message = action.payload.message;
       });
   },
 });

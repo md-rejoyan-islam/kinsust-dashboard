@@ -1,9 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-
 import { toast } from "react-toastify";
-
 const ApiURL = import.meta.env.VITE_SERVER_URL;
+
 // get all advisors
 export const getAllAdvisors = createAsyncThunk(
   "advisor/getAllAdvisors",
