@@ -1,25 +1,17 @@
 import { useRef, useState } from "react";
-import {
-  BiItalic,
-  BiAlignLeft,
-  BiAlignMiddle,
-  BiAlignRight,
-  BiAlignJustify,
-} from "react-icons/bi";
-import { FaBold, FaUnderline } from "react-icons/fa";
-import { AiOutlineOrderedList, AiOutlineUnorderedList } from "react-icons/ai";
+
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import usePhotoPreview from "../../../hook/photoPreviewHook/usePhotoPreview";
 import { createPost } from "../../../features/post/postApiSlice";
 import { Helmet } from "react-helmet-async";
+import DetailsField from "../../../components/fields/DetailsField";
 
 const AddPost = () => {
   const dispatch = useDispatch();
   // photo preview hook
   const { photoSrc, handlePhotoChange, resetPhotoPreview } = usePhotoPreview();
 
-  const editor1 = useRef(null);
   const formField = useRef(null);
 
   // input fields
@@ -28,15 +20,15 @@ const AddPost = () => {
     banner: "",
     slug: "",
     date: "",
+    details: "",
   });
   const photoField = useRef(null);
 
   // handle htmlForm submit
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { title, banner, slug, date } = input;
+    const { title, banner, slug, date, details } = input;
     const photo = photoField.current.files[0];
-    const details = editor1.current.innerHTML;
 
     const formData = new FormData();
     formData.append("title", title);
@@ -44,8 +36,10 @@ const AddPost = () => {
     formData.append("slug", slug);
     formData.append("post_photo", photo);
     formData.append("date", date);
-    // details add to formData
+
     formData.append("description", details);
+
+    console.log(formData);
 
     if (!title || !slug || !photo || !date || !banner || !details) {
       return toast.error("All fields are required!");
@@ -102,6 +96,7 @@ const AddPost = () => {
               placeholder="Enter Post Slug"
             />
           </div>
+
           <div className="mb-6 w-full">
             <label
               htmlFor="name"
@@ -136,7 +131,6 @@ const AddPost = () => {
               placeholder="Enter Post Title"
             />
           </div>
-
           <div className="mb-6">
             <label
               htmlFor="email"
@@ -144,152 +138,7 @@ const AddPost = () => {
             >
               Details
             </label>
-            <div
-              id="editorContainer"
-              className="mb-5 w-[500px] mx-auto  rounded-md border-4 border-gray-600"
-            >
-              <fieldset className=" bg-gray-600 flex justify-between px-5 py-1 items-center">
-                <button
-                  className="fontStyle italic"
-                  onClick={() => {
-                    document.execCommand("italic", false, null);
-                  }}
-                  title="Italic"
-                >
-                  <span>
-                    <BiItalic />
-                  </span>
-                </button>
-                <button
-                  className="fontStyle bold"
-                  onClick={() => {
-                    document.execCommand("bold", false, null);
-                  }}
-                  title="Bold"
-                >
-                  <span>
-                    <FaBold />
-                  </span>
-                </button>
-                <button
-                  className="fontStyle underline"
-                  onClick={() => {
-                    document.execCommand("underline", false, null);
-                  }}
-                  title={"Underline"}
-                >
-                  <span>
-                    <FaUnderline />
-                  </span>
-                </button>
-                <select
-                  id="input-font"
-                  className="h-7 w-32 items-center py-0 cursor-pointer bg-zinc-600"
-                  title="Font Family"
-                  onChange={() => {
-                    const myFont = document.getElementById("input-font").value;
-                    document.execCommand("fontName", false, myFont);
-                  }}
-                >
-                  <option value="Arial" className="p-2">
-                    Arial
-                  </option>
-                  <option value="Arial Black">Arial Black</option>
-                  <option value="Sans serif">Sans serif</option>
-                  <option value="Helvetica">Helvetica</option>
-                  <option value="Times New Roman">Times New Roman</option>
-
-                  <option value="Courier New">Courier New</option>
-                  <option value="Verdana">Verdana</option>
-                  <option value="Georgia">Georgia</option>
-                  <option value="Palatino">Palatino</option>
-                  <option value="Garamond">Garamond</option>
-                  <option value="Comic Sans MS">Comic Sans MS</option>
-
-                  <option value="Tahoma">Tahoma</option>
-                  <option value="Comic Sans MS">Comic Sans MS</option>
-                </select>
-
-                <button
-                  onClick={() => {
-                    document.execCommand("justifyLeft", false, null);
-                  }}
-                  title="Align Left"
-                >
-                  <span>
-                    <BiAlignLeft />
-                  </span>
-                </button>
-                <button
-                  onClick={() => {
-                    document.execCommand("justifyCenter", false, null);
-                  }}
-                  title="Align Center"
-                >
-                  <span>
-                    <BiAlignMiddle />
-                  </span>
-                </button>
-                <button
-                  onClick={() => {
-                    document.execCommand("justifyRight", false, null);
-                  }}
-                  title="Align Right"
-                >
-                  <span>
-                    <BiAlignRight />
-                  </span>
-                </button>
-                <button
-                  onClick={() => {
-                    document.execCommand("justifyFull", false, null);
-                  }}
-                  title="Align Justify"
-                >
-                  <span>
-                    <BiAlignJustify />
-                  </span>
-                </button>
-
-                <button
-                  onClick={() => {
-                    document.execCommand("insertOrderedList", false, null);
-                  }}
-                  title="Ordered List"
-                >
-                  <span>
-                    <AiOutlineOrderedList />
-                  </span>
-                </button>
-                <button
-                  onClick={() => {
-                    document.execCommand("insertUnorderedList", false, null);
-                  }}
-                  title="Ordered List"
-                >
-                  <span>
-                    <AiOutlineUnorderedList />
-                  </span>
-                </button>
-                <input
-                  className="w-11 h-7 border-zinc-800 border"
-                  type="color"
-                  title="Color"
-                  onChange={() => {
-                    var myColor = document.getElementById("myColor").value;
-                    document.execCommand("foreColor", false, myColor);
-                  }}
-                  id="myColor"
-                />
-              </fieldset>
-
-              <div
-                ref={editor1}
-                contentEditable="true"
-                data-text="Enter comment...."
-                className="focus:outline-none h-[300px]  py-2 px-4  overflow-y-scroll text-[#91a3a8]"
-              ></div>
-            </div>
+            <DetailsField setInputs={setInputs} content={input.details} />
           </div>
 
           <div className="mb-6">

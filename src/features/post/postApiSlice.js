@@ -20,13 +20,11 @@ export const createPost = createAsyncThunk("post/createPost", async (data) => {
 // update post data
 export const updatePost = createAsyncThunk("post/updatePost", async (data) => {
   try {
-    const response = await axios.patch(
-      `${ApiURL}/api/v1/posts/${data.id}`,
-      data.data,
-      {
-        withCredentials: true,
-      }
-    );
+    const id = data.get("id");
+
+    const response = await axios.patch(`${ApiURL}/api/v1/posts/${id}`, data, {
+      withCredentials: true,
+    });
     toast.success(response?.data?.message);
     return response.data;
   } catch (error) {
@@ -51,7 +49,7 @@ export const deletePost = createAsyncThunk("post/deletePost", async (slug) => {
 export const allPosts = createAsyncThunk("post/allPosts", async (query) => {
   try {
     const response = await axios.get(
-      `${ApiURL}/api/v1/posts?sort=-date&${query}`,
+      `${ApiURL}/api/v1/posts?sort=-date${query ? "&" + query : ""}`,
       {
         withCredentials: true,
       }

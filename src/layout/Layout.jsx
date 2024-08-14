@@ -1,5 +1,4 @@
 import { Outlet } from "react-router-dom";
-
 import { useState } from "react";
 import Header from "../components/shared/header/Header";
 import LeftMenu from "../components/shared/leftMenu/LeftMenu";

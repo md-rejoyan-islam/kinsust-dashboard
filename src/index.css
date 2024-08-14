@@ -22,3 +22,17 @@
 .details-table td {
   padding: 8px 20px;
 }
+
+body {
+  scrollbar-color: #1f213e #3e4860;
+  scrollbar-width: thin;
+}
+
+.ProseMirror {
+  border: none !important;
+}
+.ProseMirror:focus-visible {
+  outline: none;
+  border: none;
+  --tw-ring-offset-width: 0 !important;
+}

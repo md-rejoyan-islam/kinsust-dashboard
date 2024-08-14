@@ -8,7 +8,7 @@ export const getAllProgram = createAsyncThunk(
   async (query) => {
     try {
       const response = await axios.get(
-        `${ApiURL}/api/v1/programs?sort=-start_date&${query}`,
+        `${ApiURL}/api/v1/programs?sort=-start_date${query ? "&" + query : ""}`,
         {
           withCredentials: true,
         }

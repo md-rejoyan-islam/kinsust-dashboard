@@ -7,9 +7,12 @@ const ApiURL = import.meta.env.VITE_SERVER_URL;
 // all  users
 export const allUsers = createAsyncThunk("users/allUsers", async (query) => {
   try {
-    const response = await axios.get(`${ApiURL}/api/v1/users?${query}`, {
-      withCredentials: true,
-    });
+    const response = await axios.get(
+      `${ApiURL}/api/v1/users?${query ? query : ""}`,
+      {
+        withCredentials: true,
+      }
+    );
     return response.data;
   } catch (error) {
     throw new Error(error.response.data.error.message);

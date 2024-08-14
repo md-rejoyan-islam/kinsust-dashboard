@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo/kin_logo.png";
-
 import { useDispatch, useSelector } from "react-redux";
 import { userLogout } from "../../../features/auth/authApiSlice";
 import { toast } from "react-toastify";
@@ -102,32 +101,6 @@ const Header = ({ setOpenDrawer }) => {
               <span className="sr-only">Open main menu</span>
               <IoMenu className="w-6 h-6" />
             </button>
-          </div>
-          <div
-            className="items-center justify-between hidden w-full lg:flex md:w-auto md:order-1"
-            id="mobile-menu-2"
-          >
-            <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-              <li className="relative w-full h-[42px]">
-                <input
-                  type="search"
-                  placeholder="Search"
-                  className="rounded-md bg-gray-800 border-gray-800 w-[350px] pl-12 focus:outline-none focus:ring-0 focus:border-zinc-900 text-zinc-400 h-full"
-                  name=""
-                  id=""
-                />
-                <span className="absolute top-[11px] fill-gray-600 left-3 ">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z"></path>
-                  </svg>
-                </span>
-              </li>
-            </ul>
           </div>
         </div>
       </nav>
