@@ -22,7 +22,7 @@ The dashboard allows users to view and interact with the data from the KIN proje
 - Frontend: React
 - Backend: Node.js, Express
 - Database: MySQL
-- Hosting: Render
+- Hosting: Netlify
 - CSS Frameword : Tailwindcss
 - State Managment : Redux Toolkit
 - React Frameform : Flowbite
