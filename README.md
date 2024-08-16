@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a dashboard for the KIN project. It is a web application that allows users to view and interact with the data from the KIN project. The dashboard is built using the JavaScript framework in React. The data is stored in a MySQL database . The dashboard is hosted on Heroku and is available at [https://kin-dashboard.herokuapp.com/](https://kin-dashboard.herokuapp.com/).
+This is a dashboard for the KIN project. It is a web application that allows users to view and interact with the data from the KIN project. The dashboard is built using the JavaScript framework in React. The data is stored in a MySQL database . The dashboard is hosted on Netlify and is available at [https://dashboard-kin.netlify.app](https://dashboard-kin.netlify.app).
 
 ## Installation
 
@@ -29,12 +29,11 @@ The dashboard allows users to view and interact with the data from the KIN proje
 
 ## Live Preview
 
-[https://kin-dashboard.herokuapp.com/](https://kin-dashboard.herokuapp.com/)
+[https://dashboard-kin.netlify.app](https://dashboard-kin.netlify.app)
 
 ## Similar Links
 
-- [KIN API](https://github.com/kin-project/kin-api)
-- [KIN Frontend](https://github.com/kin-project/kin-frontend)
-- [KIN Backend](https://github.com/kin-project/kin-backend)
-- [ KIN Dashboard](https://github.com/kin-project/kin-dashboard)
-- [POSTMAN ](https://documenter.getpostman.com/view/13421400/TzJx9G8z)
+- [KIN API](https://github.com/md-rejoyan-islam/kinsust_backend.git)
+- [KIN Frontend](https://github.com/md-rejoyan-islam/kinsust-nextjs.git)
+- [KIN Dashboard](https://github.com/md-rejoyan-islam/kinsust-dashboard.git)
+- [POSTMAN ](https://documenter.getpostman.com/view/22735243/2sA3s7jUhm)
