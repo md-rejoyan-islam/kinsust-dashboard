@@ -8,9 +8,7 @@ import {
 
 // initial state
 export const initialState = {
-  slider: localStorage.getItem("slider")
-    ? JSON.parse(localStorage.getItem("slider"))
-    : null,
+  slider: null,
   error: null,
   message: null,
 };

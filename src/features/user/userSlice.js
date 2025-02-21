@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import {
   addUser,
   allUsers,
+  allUsersLength,
   banUser,
   unbannedUser,
   updateUser,
@@ -15,6 +16,7 @@ export const initialState = {
   message: null,
   pagination: null,
   loading: true,
+  length: null,
 };
 
 const usersSlice = createSlice({
@@ -32,15 +34,28 @@ const usersSlice = createSlice({
       .addCase(allUsers.pending, (state) => {
         state.loading = true;
       })
-      .addCase(allUsers.rejected, (state, action) => {
+      .addCase(allUsers.rejected, (state) => {
         state.loading = false;
-        state.error = action.error.message;
+        // state.error = action.error.message;
         state.users = [];
       })
       .addCase(allUsers.fulfilled, (state, action) => {
         state.loading = false;
         state.users = action.payload.data;
         state.pagination = action.payload.pagination;
+      })
+      // all lenght
+      .addCase(allUsersLength.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(allUsersLength.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
+      .addCase(allUsersLength.fulfilled, (state, action) => {
+        state.loading = false;
+        state.users = action.payload.data;
+        state.length = action.payload.data;
       })
       // add user
       .addCase(addUser.rejected, (state, action) => {

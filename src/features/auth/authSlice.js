@@ -3,7 +3,7 @@ import { loggedInUser, userLogin, userLogout } from "./authApiSlice";
 
 // initial state
 export const initialState = {
-  user: localStorage.getItem("user")
+  user: localStorage?.getItem("user")
     ? JSON.parse(localStorage.getItem("user"))
     : null,
   error: null,
@@ -47,6 +47,7 @@ const authSlice = createSlice({
       .addCase(loggedInUser.rejected, (state) => {
         state.loading = false;
         state.user = null;
+        state.message = null;
       })
       .addCase(loggedInUser.fulfilled, (state, action) => {
         state.loading = false;

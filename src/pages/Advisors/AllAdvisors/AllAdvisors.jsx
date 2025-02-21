@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Modal } from "flowbite-react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import { PhotoProvider, PhotoView } from "react-photo-view";
+import { PhotoProvider, PhotoView } from "react-photo-view";                                                                                                                              
 import Swal from "sweetalert2";
 
 import { isEmail } from "../../../helper/helper";

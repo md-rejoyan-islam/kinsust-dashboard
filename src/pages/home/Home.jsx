@@ -1,17 +1,17 @@
+import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllAdvisors } from "../../features/advisor/advisorApiSlice";
 import { allPosts } from "../../features/post/postApiSlice";
-import { allUsers } from "../../features/user/userApiSlice";
 import { getAllProgram } from "../../features/program/programApiSlice";
-import { useEffect } from "react";
+import { allUsers, allUsersLength } from "../../features/user/userApiSlice";
 
 export default function Home() {
   const { posts } = useSelector((state) => state.post);
   const { programs } = useSelector((state) => state.program);
   const { advisors } = useSelector((state) => state.advisor);
 
-  const { users } = useSelector((state) => state.user);
+  const { length } = useSelector((state) => state.user);
 
   const dispatch = useDispatch();
 
@@ -20,6 +20,7 @@ export default function Home() {
     dispatch(allPosts());
     dispatch(allUsers());
     dispatch(getAllProgram());
+    dispatch(allUsersLength());
   }, [dispatch]);
 
   return (
@@ -37,7 +38,7 @@ export default function Home() {
               Posts
             </h2>
             <p className="text-4xl text-center font-bold">
-              {posts?.data?.length}
+              {posts?.pagination?.totalDocuments}
             </p>
           </div>
           <div className="border min-w-[200px] border-slate-800 text-slate-400 rounded-md p-8 bg-green-400/5">
@@ -45,7 +46,7 @@ export default function Home() {
               Programs
             </h2>
             <p className="text-4xl text-center font-bold">
-              {programs?.data?.length}
+              {programs?.pagination?.totalDocuments}
             </p>
           </div>
           <div className="border min-w-[200px] border-slate-800 text-slate-400 rounded-md p-8 bg-green-400/5">
@@ -58,26 +59,21 @@ export default function Home() {
             <h2 className="font-semibold text-xl pb-2 text-center uppercase">
               Users
             </h2>
-            <p className="text-4xl text-center font-bold">
-              {users.filter((data) => data.role === "user")?.length}
-            </p>
+            <p className="text-4xl text-center font-bold">{length?.total}</p>
           </div>
-
           <div className="border border-slate-800 text-slate-400 min-w-[200px] rounded-md p-8 bg-green-400/5">
             <h2 className="font-semibold text-xl pb-2 text-center uppercase">
               Superadmin
             </h2>
             <p className="text-4xl text-center font-bold">
-              {users.filter((data) => data.role === "superAdmin")?.length}
+              {length?.superAdmin}
             </p>
           </div>
           <div className="border border-slate-800 text-slate-400 min-w-[200px] rounded-md p-8 bg-green-400/5">
             <h2 className="font-semibold text-xl pb-2 text-center uppercase">
               Admin
             </h2>
-            <p className="text-4xl text-center font-bold">
-              {users.filter((data) => data.role === "admin")?.length}
-            </p>
+            <p className="text-4xl text-center font-bold">{length?.admin}</p>
           </div>
         </div>
       </div>

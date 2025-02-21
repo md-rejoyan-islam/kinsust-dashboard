@@ -33,6 +33,23 @@ export const addUser = createAsyncThunk("users/addUser", async (data) => {
   }
 });
 
+// all length
+export const allUsersLength = createAsyncThunk(
+  "users/allUsersLength",
+  async () => {
+    try {
+      const response = await axios.get(`${ApiURL}/api/v1/users/all-lenght`, {
+        withCredentials: true,
+      });
+
+      return response.data;
+    } catch (error) {
+      toast.error(error?.response?.data?.error?.message);
+      throw new Error(error.response.data.error.message);
+    }
+  }
+);
+
 // ban user
 export const banUser = createAsyncThunk("users/bannedUser", async (id) => {
   try {
